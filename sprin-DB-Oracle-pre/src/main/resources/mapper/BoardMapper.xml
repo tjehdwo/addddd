@@ -5,7 +5,10 @@
 
 
 
-
+<select id="getAllBoards"
+	resultType="com.kh.springdb.model.Board">
+	SELECT * FROM BOARD
+	</select>
 
 
 

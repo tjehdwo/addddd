@@ -12,7 +12,6 @@ public class Board {
 	private int board_id;
 	private String title;
 	private String content;
-	private String image;
 	private String create_at;
 	private String author;
 	
@@ -33,12 +32,6 @@ public class Board {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public String getCreate_at() {
 		return create_at;
