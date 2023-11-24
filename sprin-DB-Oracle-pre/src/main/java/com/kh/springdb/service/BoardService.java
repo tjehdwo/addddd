@@ -13,8 +13,12 @@ public class BoardService {
 	
 	@Autowired
 	private BoardMapper boardMapper;
+
 	public List<Board> getAllBoards(){
 		return boardMapper.getAllBoards();
+		
 	}
+	
+	
 
 }
