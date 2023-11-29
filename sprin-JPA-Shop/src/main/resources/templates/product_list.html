@@ -23,7 +23,7 @@
 			<td th:text="${product.category}"></td>
 			<td th:text="${product.price}"></td>
 			<td th:text="${product.stock_quantity}"></td>
-			<td><a href="@{/products/detail/{id}(id=${product.product_id})}">상세보기클릭</a></td>
+			<td><a th:href="@{/products/detail/{id}(id=${product.product_id})}">상세보기클릭</a></td>
 			</tr>
 		</tbody>
 	</table>
