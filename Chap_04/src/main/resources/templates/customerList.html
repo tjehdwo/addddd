@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>CustomerList</title>
+</head>
+<body>
+	<h2>Customer List</h2>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NICKNAME</th>
+				<th>PASSWORD</th>
+				<th>EMAIL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="customer : ${customers}">
+				<td th:text="${customer.customer_id}"></td>
+				<td th:text="${customer.customer_nickName}"></td>
+				<td th:text="${customer.customer_password}"></td>
+				<td th:text="${customer.customer_email}"></td>
+				<td><a th:href="@{/customers/detail/{id}(id=${customer.customer_id})}">상세 보기</a></td>
+				<td><a th:href="@{/customers/delete/{id}(id=${customer.customer_id})}">삭제 하기</a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
