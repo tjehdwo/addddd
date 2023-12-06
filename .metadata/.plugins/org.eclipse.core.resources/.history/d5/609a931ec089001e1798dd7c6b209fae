@@ -1,7 +1,0 @@
-@charset "EUC-KR";
-/* styles.css*/
-
-body {
-	background-color: black;
-	color:333;	
-}
