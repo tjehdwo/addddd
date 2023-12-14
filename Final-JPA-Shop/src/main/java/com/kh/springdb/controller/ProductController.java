@@ -3,6 +3,8 @@ package com.kh.springdb.controller;
 import java.io.IOException;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,7 @@ import org.springframework.data.domain.Page;
 @RequiredArgsConstructor
 public class ProductController {
 	private final ProductService productService;
+	private final CommentService commentService;
 	
 	@GetMapping("/")
 	public String mainPageView(Model model) {
@@ -28,7 +31,7 @@ public class ProductController {
 	}
 	
 	//페이지네이션 체크를 하기 위한 GetMapping 추가
-	@GetMapping("/list")
+	@GetMapping("/product/list")
 	public String pageList(Model model,
 			@RequestParam(value="page",defaultValue="0" ) int page) {
 	// @RequestParam(value="page",defaultValue="0" )
@@ -45,13 +48,13 @@ public class ProductController {
 
 	
 	//상품 전체 목록 페이지로 이동하기 위한 GetMapping
-	@GetMapping("/product/list")
+	/*@GetMapping("/product/list")
 	public String productList(Model model) {
 		//아이템을 추가한 서비스를 불러와서 모델에 넣어주기
 		List<Product> products = productService.allProductView();
 		model.addAttribute("products", products);
 		return "productList";
-	}
+	}*/
 	
 	//상품 등록 페이지 - 조회
 	@GetMapping("/product/new")
@@ -82,13 +85,20 @@ public class ProductController {
 		return "product_detail";
 	}
 	
-	private CommentService commentSerivce;
+	
 	//댓글 작성하기 위한 postMapping
 	@PostMapping("/addComment")
-	public String addComment(@RequestParam int productId, 
-							@RequestParam String commentContent) {
-		commentSerivce.addComment(productId, commentContent);
+	public String addComment(@RequestParam(value="productId") int productId, 
+							@RequestParam(value="commentContent") String commentContent) {
+		commentService.addComment(productId, commentContent);
 		return "redirect:/product/detail/" + productId;
+	}
+	
+	@GetMapping("/product/update/{id}")
+	public String updateProduct(@PathVariable Long id, Model model) {
+		Optional<Product> product = productService.getProductById(id);
+		product.ifPresent(value -> model.addAttribute("product",value));
+		return "addProductForm";
 	}
 	
 	//like 한 내용 받아줄 수 있게 PostMapping

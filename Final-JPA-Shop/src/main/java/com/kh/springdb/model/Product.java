@@ -21,7 +21,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="products_seq")
 	@SequenceGenerator(name = "products_seq", sequenceName="products_seq", allocationSize=1)
-	private int id;
+	private Long id;
 	
 	private String name;
 	
@@ -39,7 +39,7 @@ public class Product {
 	//댓글 작성을 위한 Comment
 	//@OneToMany(mappedBy="products", cascade=CascadeType.ALL)
 	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
-	private List<Comment> comments;
+	private List<Comments> comments;
 	
 	//상품 이미지를 위한 필드 설정
 	

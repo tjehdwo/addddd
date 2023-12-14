@@ -2,11 +2,11 @@ package com.kh.springdb.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-@Table(name = "comment")
+
 @Entity
 @Getter
 @Setter
-public class Comment {
+public class Comments {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="comment_seq")
