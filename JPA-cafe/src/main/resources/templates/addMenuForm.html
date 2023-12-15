@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+	<!--private Long id;
+	
+	private String name;
+	
+	private String description;
+	
+	private String price;
+	
+	private String isSoldout;
+	-->
+<body>
+	<h1>메뉴 추가하기</h1>
+	<form th:action="@{/menu/new}" method="post">
+		<label>메뉴 번호</label>
+		<input type="number" name="id" id="id"><br>
+		<label>이름</label>
+		<input type="text" name="name" id="name"><br>
+		<label>설명</label>
+		<input type="text" name="description" id="description"><br>
+		<label>가격</label>
+		<input type="number" name="price" id="price"><br>
+		<label>품절 여부</label>
+		<input type="text" name="isSoldout" id="isSoldout"><br>
+		<button type="submit">추가하기</button>
+	</form>
+</body>
+</html>

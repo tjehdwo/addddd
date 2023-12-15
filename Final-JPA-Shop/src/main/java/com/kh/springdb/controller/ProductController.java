@@ -94,12 +94,12 @@ public class ProductController {
 		return "redirect:/product/detail/" + productId;
 	}
 	
-	@GetMapping("/product/update/{id}")
+	/*@GetMapping("/product/update/{id}")
 	public String updateProduct(@PathVariable Long id, Model model) {
 		Optional<Product> product = productService.getProductById(id);
 		product.ifPresent(value -> model.addAttribute("product",value));
 		return "addProductForm";
-	}
+	}*/
 	
 	//like 한 내용 받아줄 수 있게 PostMapping
 	

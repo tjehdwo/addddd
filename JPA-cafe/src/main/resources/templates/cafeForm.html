@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>카페 추가하기</title>
+</head>
+<body>
+	<h1>카페 추가하기</h1>
+		<form th:action="@{/cafe/new}" method="post">
+			<label>카페 번호</label>
+			<input type="text" name="id" id="id"><br>
+			<label>카페 이름</label>
+			<input type="text" name="cafename" id="cafename"><br>
+			<label>카페 주소</label>
+			<input type="text" name="address" id="address"><br>
+			<button type="submit">추가하기</button>
+		</form>
+</body>
+</html>
